@@ -31,7 +31,7 @@ const Navbar = () => {
               quality={100}
               className="w-7 h-7"
             />
-            <span className="text-2xl font-semibold">Convo</span>
+            <span className="text-2xl font-semibold">Evaluate Learning</span>
           </Link>
           <div className="flex gap-1 sm:gap-4 items-center">
             {!isUserSignedIn ? (
@@ -49,47 +49,8 @@ const Navbar = () => {
             )}
 
             <div className="hidden items-center space-x-4 sm:flex">
-              {!isUserSignedIn ? (
-                <>
-                  <Link
-                    href="/pricing"
-                    className={buttonVariants({
-                      variant: "ghost",
-                      size: "sm",
-                    })}
-                  >
-                    Pricing
-                  </Link>
-                  <Link
-                    className={buttonVariants({
-                      variant: "ghost",
-                      size: "sm",
-                    })}
-                    href="/sign-in"
-                  >
-                    Sign in
-                  </Link>
-                  <Link
-                    className={buttonVariants({
-                      size: "sm",
-                    })}
-                    href="/sign-up"
-                  >
-                    Get started
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link
-                    className={buttonVariants({
-                      size: "sm",
-                    })}
-                    href="/dashboard"
-                  >
-                    Dashboard
-                  </Link>
-                </>
-              )}
+
+                
             </div>
 
             {/* User profile mockup below, e.g using Clerk: <UserButton afterSignOutUrl="/" /> */}
