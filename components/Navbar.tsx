@@ -31,7 +31,7 @@ const Navbar = () => {
               quality={100}
               className="w-7 h-7"
             />
-            <span className="text-2xl font-semibold">Evaluate Learning</span>
+            <span className="text-2xl font-semibold" style={{ color: 'rgb(23, 48, 87)' }}>Evaluate Learning</span>
           </Link>
           <div className="flex gap-1 sm:gap-4 items-center">
             {!isUserSignedIn ? (

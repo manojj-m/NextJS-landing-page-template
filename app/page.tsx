@@ -28,7 +28,7 @@ export default function Home() {
         Use AI to generate personalised feedback for your student’s school assignments
         </p>
 
-        <Link
+        <div
           className={cn(
             buttonVariants({
               size: "lg",
@@ -36,10 +36,9 @@ export default function Home() {
             }),
             "text-lg",
           )}
-          href={"/dashboard"}
         >
-          Start Speaking Now
-        </Link>
+          Launching September 1st 2024 
+        </div>
       </MaxWidthWrapper>
 
       {/* Value Prop */}
@@ -63,7 +62,7 @@ export default function Home() {
               <div className="mt-8 flow-root sm:mt-16">
                 <div className="-m-2 w-fit rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10  lg:-m-4 lg:rounded-2xl lg:p-4">
                   <Image
-                    src="/software-preview.png"
+                    src="/dashboard.png"
                     alt="product preview"
                     width={955}
                     height={808}
@@ -98,11 +97,10 @@ export default function Home() {
             <div className="mb-6 px-6 lg:px-8">
               <div className="mx-auto max-w-2xl sm:text-center">
                 <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Start your first session in seconds
+                  Generate personalised feedback in moments
                 </h2>
                 <p className="mt-4 text-lg text-gray-600">
-                  Improving your spoken fluency has never been easier than with
-                  Convo.
+                  .
                 </p>
               </div>
             </div>
@@ -111,11 +109,11 @@ export default function Home() {
             <ol className="my-2 space-y-4 pt-2 md:flex md:space-x-6 md:space-y-0 md:px-8">
               <li className="md:flex-1">
                 <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-                  <span className="text-sm font-medium text-blue-600">
+                  <span className="text-sm font-medium text-blue-600" style={{ fontSize: '13pt' }}>
                     Step 1
                   </span>
                   <span className="text-xl font-semibold">
-                    Sign up for a Free Account
+                    Upload the <span className="text-blue-600">assignment</span> and the student's <span className="text-blue-600">response</span>
                   </span>
                   {/* <span className="mt-2 text-zinc-700">
                 Either starting out with a free plan or choose our{" "}
@@ -131,22 +129,21 @@ export default function Home() {
               </li>
               <li className="md:flex-1">
                 <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-                  <span className="text-sm font-medium text-blue-600">
+                  <span className="text-sm font-medium text-blue-600" style={{ fontSize: '13pt' }}>
                     Step 2
                   </span>
                   <span className="text-xl font-semibold">
-                    Choose a <span className="text-blue-600">Language</span> &{" "}
-                    <span className="text-blue-600">Scenario</span>
+                    Upload the student's previous <span className="text-blue-600">performance data</span> e.g. previous grades, tests, school reports 
                   </span>
                 </div>
               </li>
               <li className="md:flex-1">
                 <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-                  <span className="text-sm font-medium text-blue-600">
+                  <span className="text-sm font-medium text-blue-600" style={{ fontSize: '13pt' }}>
                     Step 3
                   </span>
                   <span className="text-xl font-semibold">
-                    Start Your Speaking Session
+                    Receive personalised feedback for the assignment via <span className="text-blue-600">email</span>
                   </span>
                   {/* <span className="mt-2 text-zinc-700">
                 
@@ -171,18 +168,38 @@ export default function Home() {
 
             <div className="flex items-center justify-center" >
               <div className="flex flex-col gap-6 w-full" >
-                <Card className="flex flex-col items-center justify-center gap-2 p-6 w-full">
-                  <CardTitle>At the Cafe</CardTitle>
-                  <CardDescription className="mb-3 text-center">
-                    Learn how to order drinks and snacks
+                <Card className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 w-full">
+                  <div className="flex flex-col items-start justify-center flex-1">
+                  <CardTitle>Welcome</CardTitle>
+                  <br></br>
+                  <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
+                  Hi, I'm Manojj, the founder of Evaluate Learning. 
+                  Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
+                  We are proudly backed by Sky's The Limit, a nonprofit organisation supporting entrepeneurs.  
                   </CardDescription>
-                  <Image
-                    src="/coffee.webp"
-                    alt="cafe scenario"
-                    width={128}
-                    height={128}
-                    quality={100}
-                  />
+                  <br></br>
+                  <CardTitle>Our Vision</CardTitle>
+                  <br></br>
+                  <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
+                  At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it. We strive to create a more dynamic, supportive learning environment for all.
+                  </CardDescription>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <Image
+                      src="/profile.png"
+                      alt="cafe scenario"
+                      width={128}
+                      height={128}
+                      quality={100}
+                      className="mb-4"
+                    />
+                      <span>Manojj</span>
+                      <a href="https://www.linkedin.com/in/manojj-m/" target="_blank" rel="noopener noreferrer" className="mt-2">
+                        <button className="bg-green-500 text-white font-semibold py-2 px-4 rounded">
+                          LinkedIn
+                        </button>
+                      </a>
+                  </div>
                 </Card>
 
                 
@@ -190,7 +207,6 @@ export default function Home() {
             </div>
             <div className="mb-6 px-6 lg:px-8">
               <div className="mx-auto max-w-2xl text-center">
-                <p className="mt-4 text-lg text-gray-600">and many more...</p>
               </div>
             </div>
           </div>
@@ -200,11 +216,10 @@ export default function Home() {
             <div className="mb-6 px-6 lg:px-8">
               <div className="mx-auto max-w-2xl sm:text-center">
                 <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Powered by
+                  Contact Us
                 </h2>
                 <p className="mt-4 text-lg text-gray-600">
-                  These are the technologies behind the scene that make Convo
-                  possible
+                We would be more than happy to assist with any questions or provide more information on Evaluate Learning.
                 </p>
               </div>
             </div>
@@ -212,47 +227,26 @@ export default function Home() {
             <div className="flex items-center justify-center">
               <div className="flex flex-col gap-6 md:flex-row">
                 <Card className="flex flex-col items-center justify-center gap-2 p-6 md:flex-1">
-                  <CardTitle>Whisper AI</CardTitle>
-                  <CardDescription className="mb-3 text-center">
-                    Speech to text
+                  <CardTitle>Phone</CardTitle>
+                  <CardDescription className="mb-3 text-center" style={{ fontSize: '13pt' }}>
+                    07483250344
                   </CardDescription>
-                  <Image
-                    src="/mic.webp"
-                    alt="cafe scenario"
-                    width={128}
-                    height={128}
-                    quality={100}
-                    className="rounded-xl"
-                  />
                 </Card>
                 <Card className="flex flex-col items-center justify-center gap-2 p-6 md:flex-1">
-                  <CardTitle>GPT 4</CardTitle>
-                  <CardDescription className="mb-3 text-center">
-                    Comprehensive prompts and responses
+                  <CardTitle>Email</CardTitle>
+                  <CardDescription className="mb-3 text-center" style={{ fontSize: '13pt' }}>
+                    evaluate.learning@gmail.com
                   </CardDescription>
-                  <Image
-                    src="/openai.webp"
-                    alt="cafe scenario"
-                    width={128}
-                    height={128}
-                    quality={100}
-                    className="rounded-xl"
-                  />
                 </Card>
 
                 <Card className="flex flex-col items-center justify-center gap-2 p-6 md:flex-1">
-                  <CardTitle>WebSpeech</CardTitle>
                   <CardDescription className="mb-3 text-center">
-                    Text to speech
+                    <a href="https://calendly.com/manojj-ranjan" target="_blank" rel="noopener noreferrer" className="mt-2">
+                      <button className="bg-green-500 text-white font-semibold py-2 px-4 rounded" style={{ fontSize: '13pt' }}>
+                        Click to book a call
+                      </button>
+                    </a>
                   </CardDescription>
-                  <Image
-                    src="/speaker.webp"
-                    alt="cafe scenario"
-                    width={128}
-                    height={128}
-                    quality={100}
-                    className="rounded-xl"
-                  />
                 </Card>
               </div>
             </div>
