@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
         <hr className="my-2 text-muted-foreground sm:mx-auto " />
         <span className="block text-sm text-muted-foreground sm:text-center">
-          © {new Date().getFullYear()}{" "}
+           {new Date().getFullYear()}{" "}
           <a
             target="_blank"
             href="/"
