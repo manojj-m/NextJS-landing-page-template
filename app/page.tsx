@@ -25,7 +25,7 @@ export default function Home() {
         </h1>
 
         <p className="mt-5 max-w-prose text-lg text-zinc-700 sm:text-2xl">
-        Use AI to generate personalised feedback for your student’s school assignments
+        Use AI to generate personalised feedback for your student’s school assignments.
         </p>
 
         <div
