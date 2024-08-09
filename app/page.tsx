@@ -99,7 +99,7 @@ export default function Home() {
             <div className="mb-6 px-6 lg:px-8">
               <div className="mx-auto max-w-2xl sm:text-center">
                 <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Generate personalised feedback in moments
+                  Generate personalised feedback in just moments
                 </h2>
                 <p className="mt-4 text-lg text-gray-600">
                   .
