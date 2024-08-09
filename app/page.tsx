@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 
+
+
 export default function Home() {
   return (
     <>
@@ -175,7 +177,7 @@ export default function Home() {
                   <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
                   Hi, I'm Manojj, the founder of Evaluate Learning. 
                   Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
-                  We are proudly backed by Sky's The Limit, a nonprofit organisation supporting entrepeneurs.  
+                  We are proudly supported by Sky's The Limit, a nonprofit organisation supporting entrepeneurs.  
                   </CardDescription>
                   <br></br>
                   <CardTitle>Our Vision</CardTitle>
