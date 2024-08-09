@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 
 
 
@@ -50,48 +51,65 @@ const CreateForm = () => {
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <Card className="max-w-xl mx-auto p-6">
+      <CardTitle className="text-center">Submit Your Details</CardTitle>
+      <br></br>
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label>First Name:</label>
+          <label className="mb-3 text-left" style={{ fontSize: '13pt' }}>First Name:</label>
           <input
             type="text"
             value={firstname}
             onChange={(e) => setFirstName(e.target.value)}
             required
+            className="w-full p-2 mt-1 border rounded"
           />
         </div>
         <div>
-          <label>Last Name:</label>
+        <br></br>
+          <label className="mb-3 text-left" style={{ fontSize: '13pt' }}>Last Name:</label>
           <input
             type="text"
             value={lastname}
             onChange={(e) => setLastName(e.target.value)}
             required
+            className="w-full p-2 mt-1 border rounded"
           />
         </div>
         <div>
-          <label>Email:</label>
+        <br></br>
+        <label className="mb-3 text-left" style={{ fontSize: '13pt' }}>Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className="w-full p-2 mt-1 border rounded"
           />
         </div>
         <div>
-          <label>Number (optional):</label>
+        <br></br>
+        <label className="mb-3 text-left" style={{ fontSize: '13pt' }}>Number (optional):</label>
           <input
             type="text"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
+            className="w-full p-2 mt-1 border rounded"
           />
         </div>
-        <button type="submit">Submit</button>
+        <br></br>
+        <div className="col-span-1 sm:col-span-2 text-center mt-4">
+          <button
+            type="submit"
+            className="bg-green-500 text-white font-semibold py-2 px-4 rounded"
+          >
+            Submit
+          </button>
+        </div>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>Details submitted successfully!</p>}
-    </div>
+      {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
+      {success && <p className="text-green-500 mt-4 text-center">Details submitted successfully!</p>}
+    </Card>
   );
 };
 

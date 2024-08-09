@@ -17,18 +17,19 @@ export default function Home() {
 
       {/* Hero */}
       <MaxWidthWrapper className="mt-10 flex flex-col items-center justify-center text-center sm:mt-12">
-        <div className="mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50">
-      
-        </div>
+        <br></br>
 
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
           <span className="text-blue-600">Personalised Feedback </span>For School Assignments
         </h1>
 
+        <br></br>
+
         <p className="mt-5 max-w-prose text-lg text-zinc-700 sm:text-2xl">
         Use AI to generate personalised feedback for your student’s school assignments.
         </p>
 
+        
         <div
           className={cn(
             buttonVariants({
@@ -154,18 +155,19 @@ export default function Home() {
             </ol>
           </div>
 
+
+
+          
           {/* Scenarios */}
           <div>
             <div className="mb-6 px-6 lg:px-8">
               <div className="mx-auto max-w-2xl sm:text-center">
                 <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  About Us
+                  About
                 </h2>
               </div>
             </div>
             {/* steps */}
-
-
 
             <div className="flex items-center justify-center" >
               <div className="flex flex-col gap-6 w-full" >
@@ -174,7 +176,7 @@ export default function Home() {
                   <CardTitle>Welcome</CardTitle>
                   <br></br>
                   <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
-                  Hi, I'm Manojj, the founder of Evaluate Learning. 
+                  I'm Manojj, the founder of Evaluate Learning. 
                   Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
                   We are proudly supported by Sky's The Limit, a nonprofit organisation supporting entrepeneurs.  
                   </CardDescription>
@@ -211,6 +213,26 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+
+          {/* Feedback */}
+          <div>
+            <div className="mb-6 px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl sm:text-center">
+                <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
+                  Register your interest
+                </h2>
+                <p className="mt-4 text-lg text-gray-600">
+                  Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024. 
+                </p>
+                <br></br>
+                <div><CreateForm/></div>
+              </div>
+            </div>
+            {/* steps */}
+
+          </div>
+
 
           {/* Powered By */}
           <div>
@@ -253,22 +275,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feedback */}
-          <div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl sm:text-center">
-                <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Register your interest
-                </h2>
-                <p className="mt-4 text-lg text-gray-600">
-                  Sign up to access a free trial of Evaluate Learning upon release, September 1st 2024. 
-                </p>
-                <div><CreateForm/></div>
-              </div>
-            </div>
-            {/* steps */}
-
-          </div>
+          
         </div>
       </MaxWidthWrapper>
 
