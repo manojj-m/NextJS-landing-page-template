@@ -142,7 +142,7 @@ export default function Home() {
                     Step 3
                   </span>
                   <span className="text-xl font-semibold">
-                    Receive personalised feedback for the assignment via <span className="text-blue-600">email</span>
+                    Receive personalised feedback for the assignment via <span className="text-blue-600">email testing</span>
                   </span>
                   {/* <span className="mt-2 text-zinc-700">
                 
