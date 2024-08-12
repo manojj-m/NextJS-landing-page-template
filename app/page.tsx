@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import CreateForm from "./CreateForm";
+import { FaLinkedin } from "react-icons/fa";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 
 export default function Home() {
@@ -26,10 +28,10 @@ export default function Home() {
         <br></br>
 
         <p className="mt-5 max-w-prose text-lg text-zinc-700 sm:text-2xl">
-        Use AI to generate personalised feedback for your student’s school assignments.
+          Use AI to generate personalised feedback for your student’s school assignments.
         </p>
 
-        
+
         <div
           className={cn(
             buttonVariants({
@@ -39,7 +41,7 @@ export default function Home() {
             "text-lg",
           )}
         >
-          Launching September 1st 2024 
+          Launching September 1st 2024
         </div>
       </MaxWidthWrapper>
 
@@ -132,7 +134,7 @@ export default function Home() {
                     Step 2
                   </span>
                   <span className="text-xl font-semibold">
-                    Upload the student's previous <span className="text-blue-600">performance data</span> e.g. previous grades, tests, school reports 
+                    Upload the student's previous <span className="text-blue-600">performance data</span> e.g. previous grades, tests, school reports
                   </span>
                 </div>
               </li>
@@ -154,55 +156,43 @@ export default function Home() {
 
 
 
-          
+
           {/* Scenarios */}
-          <div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl sm:text-center">
-                <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  About
-                </h2>
-              </div>
+          <div className="flex flex-col items-center">
+            <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl text-center mb-10">
+              Creating a more <span className="text-blue-600">dynamic</span>, supportive learning environment for <span className="text-blue-600">all</span>.
+            </h2>
+            <div className="w-full max-w-prose text-center text-lg mb-10">
+              At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it.            Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
+              We are proudly supported by <a href="https://www.skysthelimit.org/" className="underline text-blue-500">Sky's The Limit</a>, a nonprofit organisation supporting entrepeneurs.
             </div>
+
             {/* steps */}
 
             <div className="flex items-center justify-center" >
               <div className="flex flex-col gap-6 w-full" >
-                <Card className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 w-full">
+                <Card className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 w-full bg-transparent">
                   <div className="flex flex-col items-start justify-center flex-1">
-                  <CardTitle>Welcome</CardTitle>
-                  <br></br>
-                  <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
-                  I'm Manojj, the founder of Evaluate Learning. 
-                  Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
-                  We are proudly supported by Sky's The Limit, a nonprofit organisation supporting entrepeneurs.  
-                  </CardDescription>
-                  <br></br>
-                  <CardTitle>Our Vision</CardTitle>
-                  <br></br>
-                  <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
-                  At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it. We strive to create a more dynamic, supportive learning environment for all.
-                  </CardDescription>
+                    <CardTitle>Meet Our Founder</CardTitle>
+                    <CardDescription className="text-base text-left pt-5 text-gray-500 max-w-prose" >
+                      Manojj grew up in the vibrant city of London, where his passion for education and technology was ignited at a young age. With a keen interest in leveraging innovation to solve real-world problems, Manojj pursued advanced studies in computer science, focusing on the transformative potential of machine learning. His dedication led him to found our company, where he harnesses cutting-edge technology to empower teachers and revolutionize the way homework is assigned. Under Manojj's visionary leadership, our startup is committed to enhancing educational experiences through seamless, AI-driven solutions.
+                    </CardDescription>
+                    <div className="flex flex-row gap-1 mt-5 items-center">
+                      <FaLinkedin className="w-6 h-6"/>
+                      <a href="https://www.linkedin.com/in/manojj-m/" target="_blank" rel="noopener noreferrer" className="hover:underline hover:cursor-pointer text-gray-400 text-sm">Connect now</a>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src="/profile.png"
-                      alt="cafe scenario"
-                      width={128}
-                      height={128}
-                      quality={100}
-                      className="mb-4"
-                    />
-                      <span>Manojj</span>
-                      <a href="https://www.linkedin.com/in/manojj-m/" target="_blank" rel="noopener noreferrer" className="mt-2">
-                        <button className="bg-green-500 text-white font-semibold py-2 px-4 rounded">
-                          LinkedIn
-                        </button>
-                      </a>
-                  </div>
+                  <Image
+                    src="/profile.png"
+                    alt="cafe scenario"
+                    width={250}
+                    height={250}
+                    quality={100}
+                    className="rounded-full"
+                  />
                 </Card>
 
-                
+
               </div>
             </div>
             <div className="mb-6 px-6 lg:px-8">
@@ -220,10 +210,10 @@ export default function Home() {
                   Register your interest
                 </h2>
                 <p className="mt-4 text-lg text-gray-600">
-                  Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024. 
+                  Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024.
                 </p>
                 <br></br>
-                <div><CreateForm/></div>
+                {/* <div><CreateForm/></div> */}
               </div>
             </div>
             {/* steps */}
@@ -239,40 +229,30 @@ export default function Home() {
                   Contact Us
                 </h2>
                 <p className="mt-4 text-lg text-gray-600">
-                We would be more than happy to assist with any questions or provide more information on Evaluate Learning.
+                  We would be more than happy to assist with any questions or provide more information on Evaluate Learning.
                 </p>
               </div>
             </div>
-
-            <div className="flex items-center justify-center">
-              <div className="flex flex-col gap-6 md:flex-row">
-                <Card className="flex flex-col items-center justify-center gap-2 p-6 md:flex-1">
-                  <CardTitle>Phone</CardTitle>
-                  <CardDescription className="mb-3 text-center" style={{ fontSize: '13pt' }}>
-                    07483250344
-                  </CardDescription>
-                </Card>
-                <Card className="flex flex-col items-center justify-center gap-2 p-6 md:flex-1">
-                  <CardTitle>Email</CardTitle>
-                  <CardDescription className="mb-3 text-center" style={{ fontSize: '13pt' }}>
-                    evaluate.learning@gmail.com
-                  </CardDescription>
-                </Card>
-
-                <Card className="flex flex-col items-center justify-center gap-2 p-6 md:flex-1">
-                  <CardDescription className="mb-3 text-center">
-                    <a href="https://calendly.com/manojj-ranjan" target="_blank" rel="noopener noreferrer" className="mt-2">
-                      <button className="bg-green-500 text-white font-semibold py-2 px-4 rounded" style={{ fontSize: '13pt' }}>
-                        Click to book a call
-                      </button>
-                    </a>
-                  </CardDescription>
-                </Card>
+            <div className="flex flex-col items-center gap-5 w-2/3 max-w-xl m-auto">
+              <a href="https://calendly.com/manojj-ranjan" target="_blank" rel="noopener noreferrer"
+                className="flex flex-col text-center w-full justify-center border border-slate-200 rounded-md px-5 py-2.5 hover:cursor-pointer hover:scale-105 transition-all">
+                <span className="font-bold text-lg">Book a call</span>
+                <span className="text-sm text-gray-500 flex justify-center items-center gap-1">via Calendly <RxOpenInNewWindow /></span>
+              </a>
+              <div className="grid grid-rows-auto grid-cols-2 gap-10 w-full justify-center">
+                <div className="flex flex-col text-center border border-slate-200 rounded-md px-5 py-2"> 
+                  <span className="font-bold text-lg">Phone</span>
+                  <span className="text-sm">07483250344</span>
+                </div>
+                <div className="flex flex-col text-center border border-slate-200 rounded-md px-5 py-2">
+                  <span className="font-bold text-lg">Email</span>
+                  <span className="text-sm">evaluate.learning@gmail.com</span>
+                </div>
               </div>
             </div>
           </div>
 
-          
+
         </div>
       </MaxWidthWrapper>
 
