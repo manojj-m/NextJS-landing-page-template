@@ -2,6 +2,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 
+
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -10,43 +11,71 @@ import Navbar from "@/components/Navbar";
 import CreateForm from "./CreateForm";
 import { FaLinkedin } from "react-icons/fa";
 import { RxOpenInNewWindow } from "react-icons/rx";
-
+import { MdOutlineFileUpload } from "react-icons/md";
+import { MdAddchart } from "react-icons/md";
+import { MdOutlineMarkEmailRead } from "react-icons/md";
 
 export default function Home() {
   return (
     <>
       <Navbar />
 
+
       {/* Hero */}
-      <MaxWidthWrapper className="mt-10 flex flex-col items-center justify-center text-center sm:mt-12">
-        <br></br>
+      <MaxWidthWrapper className="flex flex-col items-center justify-center text-center">
+      
+        <div className="font-medium sm:mt-2 sm:mb-16">Launching September 1st 2024</div>
 
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
           <span className="text-blue-600">Personalised Feedback </span>For School Assignments
         </h1>
 
-        <br></br>
-
-        <p className="mt-5 max-w-prose text-lg text-zinc-700 sm:text-2xl">
-          Use AI to generate personalised feedback for your student’s school assignments.
-        </p>
-
-
-        <div
-          className={cn(
-            buttonVariants({
-              size: "lg",
-              className: "mt-5",
-            }),
-            "text-lg",
-          )}
-        >
-          Launching September 1st 2024
+        <div className="my-16 max-w-prose text-lg text-zinc-700 sm:text-2xl">
+          Use AI to generate personalised feedback for your student’s school assignments in just moments.
         </div>
+
+
+        <div className="flex gap-6 px-16">
+          <div className="md:flex-1">
+            <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
+              <MdOutlineFileUpload className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
+              <span className="text-xl font-semibold text-blue-600 text-left">
+                Step 1
+              </span>
+              <span className="text-xl font-semibold text-left pt-1">
+                Upload the assignment and the student's response
+              </span>
+            </div>
+          </div>
+          <div className="md:flex-1">
+            <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
+              <MdAddchart className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
+              <span className="text-xl font-semibold text-blue-600 text-left">
+                Step 2
+              </span>
+              <span className="text-xl font-semibold text-left pt-1">
+                Upload the student's previous performance data e.g. previous grades, tests, school reports
+              </span>
+            </div>
+          </div>
+          <div className="md:flex-1">
+            <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
+              <MdOutlineMarkEmailRead className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
+              <span className="text-xl font-semibold text-blue-600 text-left">
+                Step 3
+              </span>
+              <span className="text-xl font-semibold text-left pt-1">
+                Receive personalised feedback for the assignment via email
+              </span>
+            </div>
+          </div>
+        </div>
+
+
       </MaxWidthWrapper>
 
       {/* Value Prop */}
-      <div>
+      <div className="mt-32">
         <div className="relative isolate">
           <div
             aria-hidden="true"
@@ -97,62 +126,7 @@ export default function Home() {
       <MaxWidthWrapper>
         <div className="mx-auto mt-20 flex max-w-5xl flex-col gap-20 sm:mt-40 sm:gap-40">
           {/* Intro */}
-          <div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl sm:text-center">
-                <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Generate personalised feedback in just moments
-                </h2>
-              </div>
-            </div>
-            {/* steps */}
 
-            <ol className="my-2 space-y-4 pt-2 md:flex md:space-x-6 md:space-y-0 md:px-8">
-              <li className="md:flex-1">
-                <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-                  <span className="text-sm font-medium text-blue-600" style={{ fontSize: '13pt' }}>
-                    Step 1
-                  </span>
-                  <span className="text-xl font-semibold">
-                    Upload the <span className="text-blue-600">assignment</span> and the student's <span className="text-blue-600">response</span>
-                  </span>
-                  {/* <span className="mt-2 text-zinc-700">
-                Either starting out with a free plan or choose our{" "}
-                <Link
-                  href="/pricing"
-                  className="text-blue-700 underline underline-offset-2"
-                >
-                  pro plan
-                </Link>
-                .
-              </span> */}
-                </div>
-              </li>
-              <li className="md:flex-1">
-                <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-                  <span className="text-sm font-medium text-blue-600" style={{ fontSize: '13pt' }}>
-                    Step 2
-                  </span>
-                  <span className="text-xl font-semibold">
-                    Upload the student's previous <span className="text-blue-600">performance data</span> e.g. previous grades, tests, school reports
-                  </span>
-                </div>
-              </li>
-              <li className="md:flex-1">
-                <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-                  <span className="text-sm font-medium text-blue-600" style={{ fontSize: '13pt' }}>
-                    Step 3
-                  </span>
-                  <span className="text-xl font-semibold">
-                    Receive personalised feedback for the assignment via <span className="text-blue-600">email testing</span>
-                  </span>
-                  {/* <span className="mt-2 text-zinc-700">
-                
-              </span> */}
-                </div>
-              </li>
-            </ol>
-          </div>
 
 
 
@@ -178,7 +152,7 @@ export default function Home() {
                       Manojj grew up in the vibrant city of London, where his passion for education and technology was ignited at a young age. With a keen interest in leveraging innovation to solve real-world problems, Manojj pursued advanced studies in computer science, focusing on the transformative potential of machine learning. His dedication led him to found our company, where he harnesses cutting-edge technology to empower teachers and revolutionize the way homework is assigned. Under Manojj's visionary leadership, our startup is committed to enhancing educational experiences through seamless, AI-driven solutions.
                     </CardDescription>
                     <div className="flex flex-row gap-1 mt-5 items-center">
-                      <FaLinkedin className="w-6 h-6"/>
+                      <FaLinkedin className="w-6 h-6" />
                       <a href="https://www.linkedin.com/in/manojj-m/" target="_blank" rel="noopener noreferrer" className="hover:underline hover:cursor-pointer text-gray-400 text-sm">Connect now</a>
                     </div>
                   </div>
@@ -240,7 +214,7 @@ export default function Home() {
                 <span className="text-sm text-gray-500 flex justify-center items-center gap-1">via Calendly <RxOpenInNewWindow /></span>
               </a>
               <div className="grid grid-rows-auto grid-cols-2 gap-10 w-full justify-center">
-                <div className="flex flex-col text-center border border-slate-200 bg-white rounded-md px-5 py-2"> 
+                <div className="flex flex-col text-center border border-slate-200 bg-white rounded-md px-5 py-2">
                   <span className="font-bold text-lg">Phone</span>
                   <span className="text-sm">07483250344</span>
                 </div>
