@@ -24,13 +24,13 @@ export default function Home() {
       {/* Hero */}
       <MaxWidthWrapper className="flex flex-col items-center justify-center text-center">
       
-        <div className="font-medium sm:mt-2 sm:mb-16">Launching September 1st 2024</div>
+        <div className="font-medium text-zinc-700 sm:mt-2 sm:mb-16">Launching September 1st 2024</div>
 
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
-          <span className="text-blue-600">Personalised Feedback </span>For School Assignments
+          <span className="text-blue-600">Personalised Feedback <br></br></span>on School Assignments
         </h1>
 
-        <div className="my-16 max-w-prose text-lg text-zinc-700 sm:text-2xl">
+        <div className="mt-28 mb-24 max-w-prose text-lg text-zinc-700 sm:text-3xl">
           Use AI to generate personalised feedback for your student’s school assignments in just moments.
         </div>
 
@@ -39,10 +39,10 @@ export default function Home() {
           <div className="md:flex-1">
             <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
               <MdOutlineFileUpload className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
-              <span className="text-xl font-semibold text-blue-600 text-left">
+              <span className="text-xl font-bold text-blue-600 text-left">
                 Step 1
               </span>
-              <span className="text-xl font-semibold text-left pt-1">
+              <span className="text-xl font-base text-left pt-1 text-zinc-700">
                 Upload the assignment and the student's response
               </span>
             </div>
@@ -50,10 +50,10 @@ export default function Home() {
           <div className="md:flex-1">
             <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
               <MdAddchart className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
-              <span className="text-xl font-semibold text-blue-600 text-left">
+              <span className="text-xl font-bold text-blue-600 text-left">
                 Step 2
               </span>
-              <span className="text-xl font-semibold text-left pt-1">
+              <span className="text-xl font-base text-left pt-1 text-zinc-700">
                 Upload the student's previous performance data e.g. previous grades, tests, school reports
               </span>
             </div>
@@ -61,10 +61,10 @@ export default function Home() {
           <div className="md:flex-1">
             <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
               <MdOutlineMarkEmailRead className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
-              <span className="text-xl font-semibold text-blue-600 text-left">
+              <span className="text-xl font-bold text-blue-600 text-left">
                 Step 3
               </span>
-              <span className="text-xl font-semibold text-left pt-1">
+              <span className="text-xl font-base text-left pt-1 text-zinc-700">
                 Receive personalised feedback for the assignment via email
               </span>
             </div>
