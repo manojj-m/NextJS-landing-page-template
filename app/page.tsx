@@ -1,3 +1,4 @@
+"use client"
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
@@ -8,9 +9,39 @@ import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import CreateForm from "./CreateForm";
+import {
+  Chart as ChartJS, 
+  LineElement, 
+  PointElement, 
+  Tooltip, 
+  Legend, 
+  RadialLinearScale
+} from 'chart.js'
 
+import {Radar} from 'react-chartjs-2'; 
+
+ChartJS.register(
+  LineElement, 
+  PointElement,
+  Tooltip, 
+  Legend,
+  RadialLinearScale
+)
 
 export default function Home() {
+  const data = {
+    labels: ['l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8', 'l9', 'l10'], 
+    datasets : [{
+      label: 'Weekdays', 
+      data: [6, 8, 3, 10, 7, 4, 5, 7, 8, 2], 
+      backgroundColor: 'aqua',
+      borderColor: 'aqua'
+    }]
+  }
+
+  const options = {
+  }
+
   return (
     <>
       <Navbar />
@@ -201,8 +232,6 @@ export default function Home() {
                       </a>
                   </div>
                 </Card>
-
-                
               </div>
             </div>
             <div className="mb-6 px-6 lg:px-8">
@@ -211,6 +240,12 @@ export default function Home() {
             </div>
           </div>
 
+          <div style = {{width: '500px', padding: '20px'}}> 
+            <Radar
+              data = {data}
+              options = {options}
+            ></Radar>
+          </div>
 
           {/* Feedback */}
           <div>
