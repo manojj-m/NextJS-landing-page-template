@@ -20,62 +20,53 @@ export default function Home() {
     <>
       <Navbar />
 
-
-      {/* Hero */}
+      {/* Hero Section */}
       <MaxWidthWrapper className="flex flex-col items-center justify-center text-center">
-      
-        <div className="font-medium text-zinc-700 sm:mt-2 sm:mb-16">Launching September 1st 2024</div>
 
-        <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
+        <div className="font-bold text-zinc-700 mt-4 mb-8">Launching September 1st 2024</div>
+
+        <h1 className="max-w-4xl text-4xl font-bold sm:text-5xl lg:text-7xl">
           <span className="text-blue-600">Personalised Feedback <br></br></span>on School Assignments
         </h1>
 
-        <div className="mt-28 mb-24 max-w-prose text-lg text-zinc-700 sm:text-3xl">
+        <div className="mt-16 max-w-prose text-xl text-zinc-700 sm:text-2xl sm:px-6  md:mt-28">
           Use AI to generate personalised feedback for your student’s school assignments in just moments.
         </div>
 
 
-        <div className="flex gap-6 px-16">
-          <div className="md:flex-1">
-            <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
-              <MdOutlineFileUpload className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
-              <span className="text-xl font-bold text-blue-600 text-left">
-                Step 1
-              </span>
-              <span className="text-xl font-base text-left pt-1 text-zinc-700">
-                Upload the assignment and the student's response
-              </span>
-            </div>
+        <div className="flex flex-col gap-10 mt-16 sm:gap-6 sm:flex-row md:px-16">
+          <div className="flex flex-col px-4 sm:flex-1 items-center">
+            <MdOutlineFileUpload className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-2 md:mb-6" style={{ fill: "rgb(125, 125, 125)" }} />
+            <span className="text-lg font-bold text-blue-600 text-left md:text-xl">
+              Step 1
+            </span>
+            <span className="text-lg font-base pt-1 text-zinc-700 md:text-xl md:text-left">
+              Upload the assignment and the student's response
+            </span>
           </div>
-          <div className="md:flex-1">
-            <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
-              <MdAddchart className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
-              <span className="text-xl font-bold text-blue-600 text-left">
-                Step 2
-              </span>
-              <span className="text-xl font-base text-left pt-1 text-zinc-700">
-                Upload the student's previous performance data e.g. previous grades, tests, school reports
-              </span>
-            </div>
+          <div className="flex flex-col px-4 sm:flex-1 items-center">
+            <MdAddchart className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-2 md:mb-6" style={{ fill: "rgb(125, 125, 125)" }} />
+            <span className="text-lg font-bold text-blue-600 text-left md:text-xl">
+              Step 2
+            </span>
+            <span className="text-lg font-base pt-1 text-zinc-700 md:text-xl md:text-left">
+              Upload the student's previous performance data e.g. previous grades, tests, school reports
+            </span>
           </div>
-          <div className="md:flex-1">
-            <div className="flex flex-col md:border-l-0 md:pb-0 md:pl-0 md:pt-4">
-              <MdOutlineMarkEmailRead className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-6" style={{ fill: "rgb(125, 125, 125)"}}/>
-              <span className="text-xl font-bold text-blue-600 text-left">
-                Step 3
-              </span>
-              <span className="text-xl font-base text-left pt-1 text-zinc-700">
-                Receive personalised feedback for the assignment via email
-              </span>
-            </div>
+          <div className="flex flex-col px-4 sm:flex-1 items-center">
+            <MdOutlineMarkEmailRead className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-2 md:mb-6" style={{ fill: "rgb(125, 125, 125)" }} />
+            <span className="text-lg font-bold text-blue-600 text-left md:text-xl">
+              Step 3
+            </span>
+            <span className="text-lg font-base pt-1 text-zinc-700 md:text-xl md:text-left">
+              Receive personalised feedback for the assignment via email
+            </span>
           </div>
         </div>
-
-
       </MaxWidthWrapper>
 
       {/* Value Prop */}
-      <div className="mt-32">
+      <div className="mt-8">
         <div className="relative isolate">
           <div
             aria-hidden="true"
@@ -122,114 +113,90 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Features */}
       <MaxWidthWrapper>
-        <div className="mx-auto mt-20 flex max-w-5xl flex-col gap-20 sm:mt-40 sm:gap-40">
-          {/* Intro */}
+
+        {/* Who are we? */}
+        <section className="flex flex-col mt-24">
+          <div className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8">
+            Creating a more <span className="text-blue-600">dynamic</span>, supportive learning environment for <span className="text-blue-600">all</span>
+          </div>
+          <div className="w-full max-w-prose text-center text-base px-4 md:text-lg">
+            At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it.            Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
+            We are proudly supported by <a href="https://www.skysthelimit.org/" className="underline text-blue-500">Sky's The Limit</a>, a nonprofit organisation supporting entrepeneurs.
+          </div>
+        </section>
+
+        {/* Meet The Founder */}
+        <section className="flex flex-col mt-12">
+          <div className="flex flex-col items-center justify-between gap-6 p-8 w-full bg-white border rounded-xl md:flex-row">
+            <div className="flex flex-col items-start justify-center flex-1">
+              <div className="text-3xl font-bold">Meet Our Founder</div>
+              <div className="text-base text-left pt-5 text-gray-900 max-w-prose" >
+                Manojj grew up in the vibrant city of London, where his passion for education and technology was ignited at a young age. With a keen interest in leveraging innovation to solve real-world problems, Manojj pursued advanced studies in computer science, focusing on the transformative potential of machine learning. His dedication led him to found our company, where he harnesses cutting-edge technology to empower teachers and revolutionize the way homework is assigned. Under Manojj's visionary leadership, our startup is committed to enhancing educational experiences through seamless, AI-driven solutions.
+              </div>
+              <div className="flex flex-row gap-1 mt-5 items-center">
+                <FaLinkedin className="w-6 h-6" />
+                <a href="https://www.linkedin.com/in/manojj-m/" target="_blank" rel="noopener noreferrer" className="hover:underline hover:cursor-pointer text-gray-500 text-sm">Connect now</a>
+              </div>
+            </div>
+            <Image
+              src="/profile.png"
+              alt="cafe scenario"
+              width={250}
+              height={250}
+              quality={100}
+              className="rounded-full"
+            />
+          </div>
+        </section>
+
+
+        {/* Form */}
+        <section className="mt-16 max-w-2xl text-center md:text-left">
+          <div className="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+            Register Your Interest
+          </div>
+          <p className="mt-4 text-base md:text-lg text-gray-600">
+            Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024.
+          </p>
+          <br></br>
+          {/* <div><CreateForm/></div> */}
+        </section>
+        {/* steps */}
 
 
 
-
-
-          {/* Scenarios */}
-          <div className="flex flex-col items-center">
-            <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl text-center mb-10">
-              Creating a more <span className="text-blue-600">dynamic</span>, supportive learning environment for <span className="text-blue-600">all</span>.
+        {/* Contact Us */}
+        <section className="flex flex-col mt-16">
+          <div className="mx-auto max-w-2xl text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Contact Us
             </h2>
-            <div className="w-full max-w-prose text-center text-lg mb-10">
-              At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it.            Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
-              We are proudly supported by <a href="https://www.skysthelimit.org/" className="underline text-blue-500">Sky's The Limit</a>, a nonprofit organisation supporting entrepeneurs.
-            </div>
-
-            {/* steps */}
-
-            <div className="flex items-center justify-center" >
-              <div className="flex flex-col gap-6 w-full" >
-                <Card className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 w-full bg-white mt-12">
-                  <div className="flex flex-col items-start justify-center flex-1">
-                    <CardTitle>Meet Our Founder</CardTitle>
-                    <CardDescription className="text-base text-left pt-5 text-gray-500 max-w-prose" >
-                      Manojj grew up in the vibrant city of London, where his passion for education and technology was ignited at a young age. With a keen interest in leveraging innovation to solve real-world problems, Manojj pursued advanced studies in computer science, focusing on the transformative potential of machine learning. His dedication led him to found our company, where he harnesses cutting-edge technology to empower teachers and revolutionize the way homework is assigned. Under Manojj's visionary leadership, our startup is committed to enhancing educational experiences through seamless, AI-driven solutions.
-                    </CardDescription>
-                    <div className="flex flex-row gap-1 mt-5 items-center">
-                      <FaLinkedin className="w-6 h-6" />
-                      <a href="https://www.linkedin.com/in/manojj-m/" target="_blank" rel="noopener noreferrer" className="hover:underline hover:cursor-pointer text-gray-400 text-sm">Connect now</a>
-                    </div>
-                  </div>
-                  <Image
-                    src="/profile.png"
-                    alt="cafe scenario"
-                    width={250}
-                    height={250}
-                    quality={100}
-                    className="rounded-full"
-                  />
-                </Card>
-
-
-              </div>
-            </div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
-              </div>
-            </div>
+            <p className="mt-2 text-base md:text-lg text-gray-600">
+              We would be more than happy to assist with any questions or provide more information on Evaluate Learning.
+            </p>
           </div>
-
-
-          {/* Feedback */}
-          <div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl sm:text-center">
-                <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Register your interest
-                </h2>
-                <p className="mt-4 text-lg text-gray-600">
-                  Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024.
-                </p>
-                <br></br>
-                {/* <div><CreateForm/></div> */}
-              </div>
-            </div>
-            {/* steps */}
-
-          </div>
-
-
-          {/* Powered By */}
-          <div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl sm:text-center">
-                <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Contact Us
-                </h2>
-                <p className="mt-4 text-lg text-gray-600">
-                  We would be more than happy to assist with any questions or provide more information on Evaluate Learning.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-5 w-2/3 max-w-xl m-auto">
-              <a href="https://calendly.com/manojj-ranjan" target="_blank" rel="noopener noreferrer"
-                className="flex flex-col text-center w-full justify-center border border-slate-200 bg-white rounded-md px-5 py-2.5 hover:cursor-pointer hover:scale-105 transition-all">
-                <span className="font-bold text-lg">Book a call</span>
-                <span className="text-sm text-gray-500 flex justify-center items-center gap-1">via Calendly <RxOpenInNewWindow /></span>
+          <div className="flex flex-col items-center gap-4 mt-4 md:gap-5 w-full md:w-2/3 max-w-xl m-auto">
+            <a href="https://calendly.com/manojj-ranjan" target="_blank" rel="noopener noreferrer"
+              className="flex flex-col text-center w-full justify-center border border-slate-200 bg-white rounded-md px-5 py-2.5 hover:cursor-pointer hover:scale-105 transition-all">
+              <span className="font-bold text-lg">Book a call</span>
+              <span className="text-sm text-gray-500 flex justify-center items-center gap-1">via Calendly <RxOpenInNewWindow /></span>
+            </a>
+            <div className="grid grid-rows-auto grid-cols-1 gap-2 border-t pt-4 w-full justify-center md:grid-cols-2 md:gap-10 md:border-0">
+              <a href="tel:07483250344" className="flex flex-col text-center border border-slate-200 bg-white rounded-md px-5 py-2 hover:cursor-pointer hover:scale-105 transition-all">
+                <span className="font-bold text-lg">Phone</span>
+                <span className="text-sm">07483250344</span>
               </a>
-              <div className="grid grid-rows-auto grid-cols-2 gap-10 w-full justify-center">
-                <div className="flex flex-col text-center border border-slate-200 bg-white rounded-md px-5 py-2">
-                  <span className="font-bold text-lg">Phone</span>
-                  <span className="text-sm">07483250344</span>
-                </div>
-                <div className="flex flex-col text-center border border-slate-200 bg-white rounded-md px-5 py-2">
-                  <span className="font-bold text-lg">Email</span>
-                  <span className="text-sm">evaluate.learning@gmail.com</span>
-                </div>
-              </div>
+              <a href="mailto:evaluate.learning@gmail.com" className="flex flex-col text-center border border-slate-200 bg-white rounded-md px-5 py-2 hover:cursor-pointer hover:scale-105 transition-all">
+                <span className="font-bold text-lg">Email</span>
+                <span className="text-sm">evaluate.learning@gmail.com</span>
+              </a>
             </div>
           </div>
+        </section>
 
 
-        </div>
       </MaxWidthWrapper>
-
       <Footer />
     </>
   );
