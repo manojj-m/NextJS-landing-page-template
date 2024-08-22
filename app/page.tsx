@@ -1,4 +1,3 @@
-"use client"
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
@@ -17,19 +16,6 @@ import { MdAddchart } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 
 export default function Home() {
-  const data = {
-    labels: ['l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8', 'l9', 'l10'], 
-    datasets : [{
-      label: 'Weekdays', 
-      data: [6, 8, 3, 10, 7, 4, 5, 7, 8, 2], 
-      backgroundColor: 'aqua',
-      borderColor: 'aqua'
-    }]
-  }
-
-  const options = {
-  }
-
   return (
     <>
       <Navbar />
@@ -151,71 +137,31 @@ export default function Home() {
                 <RxOpenInNewWindow className="text-sm text-gray-500" />
               </div>
             </div>
-            {/* steps */}
-
-            <div className="flex items-center justify-center" >
-              <div className="flex flex-col gap-6 w-full" >
-                <Card className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 w-full">
-                  <div className="flex flex-col items-start justify-center flex-1">
-                  <CardTitle>Welcome</CardTitle>
-                  <br></br>
-                  <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
-                  I'm Manojj, the founder of Evaluate Learning. 
-                  Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
-                  We are proudly supported by Sky's The Limit, a nonprofit organisation supporting entrepeneurs.  
-                  </CardDescription>
-                  <br></br>
-                  <CardTitle>Our Vision</CardTitle>
-                  <br></br>
-                  <CardDescription className="mb-3 text-left" style={{ fontSize: '13pt' }}>
-                  At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it. We strive to create a more dynamic, supportive learning environment for all.
-                  </CardDescription>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Image
-                      src="/profile.png"
-                      alt="cafe scenario"
-                      width={128}
-                      height={128}
-                      quality={100}
-                      className="mb-4"
-                    />
-                      <span>Manojj</span>
-                      <a href="https://www.linkedin.com/in/manojj-m/" target="_blank" rel="noopener noreferrer" className="mt-2">
-                        <button className="bg-green-500 text-white font-semibold py-2 px-4 rounded">
-                          LinkedIn
-                        </button>
-                      </a>
-                  </div>
-                </Card>
-
-                
-              </div>
-            </div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
-              </div>
-            </div>
+            <Image
+              src="/profile.png"
+              alt="cafe scenario"
+              width={250}
+              height={250}
+              quality={100}
+              className="rounded-full"
+            />
           </div>
+        </section>
 
 
-          {/* Feedback */}
-          <div>
-            <div className="mb-6 px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl sm:text-center">
-                <h2 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Register your interest
-                </h2>
-                <p className="mt-4 text-lg text-gray-600">
-                  Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024. 
-                </p>
-                <br></br>
-                <div><CreateForm/></div>
-              </div>
-            </div>
-            {/* steps */}
-
+        {/* Form */}
+        <section className="mt-16 max-w-2xl text-center mx-auto lg:mt-24">
+          <div className="text-3xl font-bold text-gray-900 md:text-4xl">
+            Register Your Interest
           </div>
+          <p className="mt-4 text-base md:text-lg text-gray-600">
+            Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024.
+          </p>
+          <br></br>
+            <div><CreateForm/></div>
+        </section>
+        
+
 
 
         {/* Contact Us */}
