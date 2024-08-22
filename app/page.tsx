@@ -158,9 +158,9 @@ export default function Home() {
             Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024.
           </p>
           <br></br>
-          {/* <div><CreateForm/></div> */}
+            <div><CreateForm/></div>
         </section>
-        {/* steps */}
+        
 
 
 
