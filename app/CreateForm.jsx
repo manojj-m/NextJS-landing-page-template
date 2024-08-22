@@ -97,14 +97,18 @@ const CreateForm = () => {
             className="w-full p-2 mt-1 border rounded"
           />
         </div>
-        <br></br>
         <div className="col-span-1 sm:col-span-2 text-center mt-4">
-          <button
-            type="submit"
-            className="bg-green-500 text-white font-semibold py-2 px-4 rounded"
-          >
-            Submit
-          </button>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: '#32CD32', 
+            color: 'white', 
+            padding: '10px 20px', 
+            borderRadius: '5px'
+          }}
+        >
+          Submit
+        </button>
         </div>
       </form>
       {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
