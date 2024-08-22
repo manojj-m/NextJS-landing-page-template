@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en" className="light">
       <body
         className={cn(
-          "grainy flex min-h-screen flex-col font-sans antialiased",
+          "grainy flex flex-col font-sans antialiased w-full",
           GeistSans.className,
         )}
       >
