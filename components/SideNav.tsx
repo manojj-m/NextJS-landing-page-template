@@ -10,11 +10,11 @@ export const SideNav = () => {
       label: "Pricing",
     },
     {
-      href: "/sign-in",
+      href: "/signin",
       label: "Sign In",
     },
     {
-      href: "/sign-up",
+      href: "/signup",
       label: "Sign Up",
     },
   ];

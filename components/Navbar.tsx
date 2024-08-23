@@ -33,7 +33,25 @@ const Navbar = () => {
             />
             <span className="text-2xl font-semibold" style={{ color: 'rgb(23, 48, 87)' }}>Evaluate Learning</span>
           </Link>
-          
+          <div className="hidden items-center space-x-4 sm:flex">
+            <Link
+              className={buttonVariants({
+                variant: "ghost",
+                size: "sm",
+              })}
+              href="/signin"
+            >
+              Sign in
+            </Link>
+            <Link
+              className={buttonVariants({
+                size: "sm",
+              })}
+              href="/signup"
+            >
+              Get started
+            </Link>
+          </div>          
         </div>
       </MaxWidthWrapper>
     </nav>
