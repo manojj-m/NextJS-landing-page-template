@@ -1,4 +1,3 @@
-import { tokens } from "../theme";
 
 export const mockDataTeam = [
     {
@@ -433,7 +432,7 @@ export const mockDataTeam = [
   export const mockLineData = [
     {
       id: "japan",
-      color: tokens("dark").greenAccent[500],
+      color: "#db4f4a",
       data: [
         {
           x: "plane",
@@ -487,7 +486,7 @@ export const mockDataTeam = [
     },
     {
       id: "france",
-      color: tokens("dark").blueAccent[300],
+      color: "#db4f4a",
       data: [
         {
           x: "plane",
@@ -541,7 +540,7 @@ export const mockDataTeam = [
     },
     {
       id: "us",
-      color: tokens("dark").redAccent[200],
+      color: "#db4f4a",
       data: [
         {
           x: "plane",

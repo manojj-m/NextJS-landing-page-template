@@ -1,11 +1,9 @@
 import { useTheme } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
-import { tokens } from "../theme";
 import { mockBarData as data } from "../data/mockData";
 
 const BarChart = ({ isDashboard = false }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+
 
   return (
     <ResponsiveBar
@@ -14,27 +12,27 @@ const BarChart = ({ isDashboard = false }) => {
         axis: {
           domain: {
             line: {
-              stroke: colors.grey[100],
+              stroke: "#db4f4a",
             },
           },
           legend: {
             text: {
-              fill: colors.grey[100],
+              fill: "#db4f4a",
             },
           },
           ticks: {
             line: {
-              stroke: colors.grey[100],
+              stroke: "#db4f4a",
               strokeWidth: 1,
             },
             text: {
-              fill: colors.grey[100],
+              fill: "#db4f4a",
             },
           },
         },
         legends: {
           text: {
-            fill: colors.grey[100],
+            fill: "#db4f4a",
           },
         },
       }}
