@@ -1,9 +1,11 @@
 import { useTheme } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
 import { mockBarData as data } from "../data/mockData";
+import { colours } from 'app/signin/themes';
 
 const BarChart = ({ isDashboard = false }) => {
-
+  const theme = useTheme();
+  const colors = colours;
 
   return (
     <ResponsiveBar
@@ -12,27 +14,27 @@ const BarChart = ({ isDashboard = false }) => {
         axis: {
           domain: {
             line: {
-              stroke: "#db4f4a",
+              stroke: colors[1],
             },
           },
           legend: {
             text: {
-              fill: "#db4f4a",
+              fill: colors[1],
             },
           },
           ticks: {
             line: {
-              stroke: "#db4f4a",
+              stroke: colors[1],
               strokeWidth: 1,
             },
             text: {
-              fill: "#db4f4a",
+              fill: colors[1],
             },
           },
         },
         legends: {
           text: {
-            fill: "#db4f4a",
+            fill: colors[1],
           },
         },
       }}

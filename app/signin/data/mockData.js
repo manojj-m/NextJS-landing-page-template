@@ -432,7 +432,7 @@ export const mockDataTeam = [
   export const mockLineData = [
     {
       id: "japan",
-      color: "#db4f4a",
+      color: '#4caf50',
       data: [
         {
           x: "plane",
@@ -486,7 +486,7 @@ export const mockDataTeam = [
     },
     {
       id: "france",
-      color: "#db4f4a",
+      color: '#2196f3',
       data: [
         {
           x: "plane",
@@ -540,7 +540,7 @@ export const mockDataTeam = [
     },
     {
       id: "us",
-      color: "#db4f4a",
+      color: '#f44336',
       data: [
         {
           x: "plane",
