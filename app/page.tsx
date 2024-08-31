@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Try it out completely for free!</div>
+      {/* <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Try it out completely for free!</div> */}
 
       {/* Hero Section */}
       <MaxWidthWrapper className="flex flex-col items-center justify-center text-center">
@@ -28,10 +28,22 @@ export default function Home() {
         </h1>
 
         <div className="mt-16 max-w-prose text-xl text-zinc-700 sm:text-2xl sm:px-6 lg:mt-24 lg:text-3xl">
-          Use AI to generate personalised feedback for your student’s maths assignments in just moments.
+          Generate personalised feedback for your primary school student’s maths assignments in just moments.
         </div>
 
-        <div className="flex flex-col gap-10 mt-16 sm:gap-6 sm:flex-row lg:mt-24">
+        <Link
+          className={cn(
+            buttonVariants({
+              size: "lg",
+              className: "mt-16 px-12 py-6 text-xl rounded-lg",
+            }),
+          )}
+          href={"/getstarted"}
+        >
+          Try it out
+        </Link>
+
+        <div className="flex flex-col gap-10 mt-16 sm:gap-6 sm:flex-row lg:mt-20">
           <div className="flex flex-col px-4 sm:flex-1 items-center lg:items-start">
             <MdOutlineFileUpload className="border border-gray-200 bg-white h-12 w-12 rounded-full font-gray-400 p-3 mb-2 lg:mb-6" style={{ fill: "rgb(125, 125, 125)" }} />
             <span className="text-lg font-bold text-blue-600 text-left md:text-xl">

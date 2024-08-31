@@ -156,7 +156,7 @@ export default function Home() {
     <div style={{ height: '500px' }}>
     <>
       <Navbar />
-      <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Launching 1 September 2024</div>
+      {/* <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Launching 1 September 2024</div> */}
 
       {score_data.length > 0 && type_data.length > 0 ? (
 
