@@ -31,7 +31,7 @@ export default function Home() {
     useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://api-ashy-tau.vercel.app/testing'); // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+            const response = await axios.get('http://127.0.0.1:8000/'); // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
             setScoreData(response.data.radar_topic_scores_fin);
             setTypeData(response.data.radar_type_scores);
         } catch (error) {

@@ -1,36 +1,247 @@
-"use client"
-import { useState } from "react";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./scenes/dashboard";
-import Team from "./scenes/team";
-import Contacts from "./scenes/contacts";
-import Invoices from "./scenes/invoices";
-import Bar from "./scenes/bar";
-import Pie from "./scenes/pie";
-import Line from "./scenes/line";
-import FAQ from "./scenes/faq";
-import Calendar from "./scenes/calendar/Calendar";
-import Geography from "./scenes/geography";
+import React, { useEffect, useState } from "react";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { createClient } from '@supabase/supabase-js';
+import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from 'uuid'; 
+import { ResponsiveRadar } from '@nivo/radar';
+import axios from 'axios';
+import Link from "next/link";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { MdOutlineFileUpload } from "react-icons/md";
+import { MdAddchart } from "react-icons/md";
+import { MdOutlineMarkEmailRead } from "react-icons/md";
 
-function App() {
+export default function Home() {
+
+  const styles = {
+    card: {
+      border: '1px solid #ddd',
+      padding: '10px',
+      marginBottom: '10px',
+      borderRadius: '4px'
+    }
+  };
+
+  const router = useRouter();
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+  const [isLoadingResponses, setIsLoadingResponses] = useState(false);
+  const [questionUUIDs, setQuestionUUIDs] = useState([]);
+  const [responseUUIDs, setResponseUUIDs] = useState([]);
+  const [questionsUploaded, setQuestionsUploaded] = useState(false);
+  const [responsesUploaded, setResponsesUploaded] = useState(false);  
+  const [isApiCalled, setIsApiCalled] = useState(false);
+  const [score_data, setScoreData] = useState([]);
+  const [type_data, setTypeData] = useState([]);
+  const [question_data, setQuestionData] = useState([]);
+
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  );
+
+  // Other functions like uploadFiles, handleQuestionUpload, handleResponseUpload, etc.
+
+  useEffect(() => {
+    const callTestingAPI = async (questionUUIDs, responseUUIDs) => {
+      setIsApiCalled(true);
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/testing', {
+          params: {
+            file_names: questionUUIDs,
+            responses: responseUUIDs,
+          },
+          paramsSerializer: paramsSerializer
+        });
+        console.log(response);
+        setScoreData(response.data.radar_topic_scores_fin);
+        setTypeData(response.data.radar_type_scores);
+        setQuestionData(response.data.ai_feedback); 
+      } catch (error) {
+        console.error('Error calling API:', error);
+      }
+    };
+
+    if (questionsUploaded && responsesUploaded) {
+      callTestingAPI(questionUUIDs, responseUUIDs);
+    }
+
+  }, [questionsUploaded, responsesUploaded]);
+
+  const paramsSerializer = (params) => {
+    const searchParams = new URLSearchParams();
+    Object.keys(params).forEach(key => {
+      if (Array.isArray(params[key])) {
+        params[key].forEach(val => searchParams.append(key, val));
+      } else {
+        searchParams.append(key, params[key]);
+      }
+    });
+    return searchParams.toString();
+  };
 
   return (
-        <div className="app">
-          <main className="content">
-              <Dashboard />
-              <Team />
-              <Contacts />
-              <Invoices />
-              <Bar />
-              <Pie />
-              <Line />
-              <FAQ />
-              <Calendar />
-              <Geography />
-          </main>
-        </div>
+    <div style={{ height: '500px' }}>
+      <>
+        <Navbar />
+
+        {score_data.length > 0 && type_data.length > 0 && question_data.length > 0 ? (
+          <>
+            <ResponsiveRadar
+              data={score_data}
+              keys={['weaker', 'weak', 'okay', 'strong', 'stronger']}
+              indexBy="label"
+              maxValue={100}
+              valueFormat=" >-.0f"
+              margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
+              borderWidth={0}
+              borderColor={{ from: 'color', modifiers: [] }}
+              gridLevels={10}
+              gridShape="linear"
+              gridLabelOffset={20}
+              dotSize={2}
+              dotColor={{ from: 'color', modifiers: [] }}
+              dotBorderWidth={1}
+              enableDotLabel={true}
+              dotLabelYOffset={-2}
+              colors={{ scheme: 'set2' }}
+              fillOpacity={1}
+              motionConfig="default"
+              legends={[
+                {
+                  anchor: 'top-left',
+                  direction: 'column',
+                  translateX: -50,
+                  translateY: -40,
+                  itemWidth: 80,
+                  itemHeight: 20,
+                  itemTextColor: '#999',
+                  symbolSize: 0,
+                  symbolShape: 'circle',
+                  effects: [
+                    {
+                      on: 'hover',
+                      style: {
+                        itemTextColor: '#000'
+                      }
+                    }
+                  ]
+                }
+              ]}
+            />
+
+            <div>
+              {score_data.map((entry, index) => (
+                <div key={index} style={styles.card}>
+                  <p><strong>{entry.label}:</strong> {entry.LO}</p>
+                </div>
+              ))}
+            </div>
+
+            <ResponsiveRadar
+              data={type_data}
+              keys={['mark']}
+              indexBy="type"
+              maxValue={5}
+              valueFormat=" >-.2f"
+              margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
+              borderWidth={0}
+              borderColor={{ from: 'color', modifiers: [] }}
+              gridLevels={10}
+              gridShape="linear"
+              gridLabelOffset={20}
+              dotSize={2}
+              dotColor={{ from: 'color', modifiers: [] }}
+              dotBorderWidth={1}
+              enableDotLabel={true}
+              dotLabelYOffset={3}
+              colors={{ scheme: 'set2' }}
+              fillOpacity={1}
+              motionConfig="default"
+              legends={[
+                {
+                  anchor: 'top-left',
+                  direction: 'column',
+                  translateX: -50,
+                  translateY: -40,
+                  itemWidth: 80,
+                  itemHeight: 20,
+                  itemTextColor: '#999',
+                  symbolSize: 0,
+                  symbolShape: 'circle',
+                  effects: [
+                    {
+                      on: 'hover',
+                      style: {
+                        itemTextColor: '#000'
+                      }
+                    }
+                  ]
+                }
+              ]}
+            />
+
+            {/* Rendering Cards for Each Element in question_data */}
+            <div>
+              {question_data.map((question, index) => (
+                <div key={index} style={styles.card}>
+                  <CardTitle>{question.title}</CardTitle> {/* Assuming question object has a 'title' property */}
+                  <CardDescription>{question.description}</CardDescription> {/* Assuming question object has a 'description' property */}
+                  {/* Add more elements as needed based on the structure of question_data */}
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div>
+            <p>Upload your files here:</p>
+            <Link
+              className={buttonVariants({
+                variant: "ghost",
+                size: "sm",
+              })}
+              href="/getstarted/feedback"
+            >
+              Sign in
+            </Link>
+
+            <br></br>
+
+            <form onSubmit={handleQuestionUpload}>
+              <p>Upload the question sheets:</p>
+              <input
+                type="file"
+                multiple
+                name="questionInput"
+                onChange={(e) => console.log(e.target.files.length + ' files selected for questions')}
+              />
+              <button type="submit" disabled={isLoadingQuestions}>
+                {isLoadingQuestions ? 'Uploading Questions...' : 'Upload Questions'}
+              </button>
+            </form>
+
+            <br></br>
+
+            <form onSubmit={handleResponseUpload}>
+              <p>Upload the student's response (can be handwritten or typed):</p>
+              <input
+                type="file"
+                multiple
+                name="responseInput"
+                onChange={(e) => console.log(e.target.files.length + ' files selected for responses')}
+              />
+              <button type="submit" disabled={isLoadingResponses}>
+                {isLoadingResponses ? 'Uploading Responses...' : 'Upload Responses'}
+              </button>
+            </form>
+          </div>
+        )}
+
+        <br></br>
+        <Footer />
+      </>
+    </div>
   );
 }
-
-export default App;

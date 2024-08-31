@@ -14,6 +14,9 @@ import Navbar from "@/components/Navbar";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { MdAddchart } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
+import {Dropdown, DropdownMenu, DropdownItem, Button} from "@nextui-org/dropdown";
+
+
 
 export default function Home() {
 
@@ -23,8 +26,14 @@ export default function Home() {
       padding: '10px',
       marginBottom: '10px',
       borderRadius: '4px'
+    },
+
+    question_card: {
+      padding: '10px',
+      marginBottom: '10px',
     }
   };
+
   const router = useRouter();
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
   const [isLoadingResponses, setIsLoadingResponses] = useState(false);
@@ -35,6 +44,7 @@ export default function Home() {
   const [isApiCalled, setIsApiCalled] = useState(false); // State to manage UI visibility
   const [score_data, setScoreData] = useState([]);
   const [type_data, setTypeData] = useState([]);
+  const [question_data, setQuestionData] = useState([])
 
 
   const supabase = createClient(
@@ -96,15 +106,17 @@ export default function Home() {
       setIsApiCalled(true); // Hide upload buttons and forms
       try {
   
-        const response = await axios.get('https://api-ashy-tau.vercel.app/mark', {
+        const response = await axios.get('http://127.0.0.1:8000/testing', {
           params: {
             file_names: questionUUIDs,
             responses: responseUUIDs,
           },
           paramsSerializer: paramsSerializer  // Use custom serializer
       });
+      console.log(response)
       setScoreData(response.data.radar_topic_scores_fin);
       setTypeData(response.data.radar_type_scores);
+      setQuestionData(response.data.ai_feedback); 
   
       } catch (error) {
         console.error('Error calling API:', error);
@@ -158,7 +170,7 @@ export default function Home() {
       <Navbar />
       {/* <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Launching 1 September 2024</div> */}
 
-      {score_data.length > 0 && type_data.length > 0 ? (
+      {score_data.length > 0 && type_data.length > 0 && question_data.length ? (
 
          <>
     <ResponsiveRadar
@@ -255,6 +267,34 @@ export default function Home() {
             }
         ]}
     />
+
+     {/* Rendering Cards for Each Element in question_data */}
+     <div>
+              {question_data.map((question, index) => (
+              <section className="flex flex-col mt-12 w-full max-w-4xl mx-auto lg:mt-20">
+                <div key={index} style={styles.question_card}>
+                  <div className="flex flex-col items-center justify-between gap-6 p-8 w-full bg-white  rounded-xl md:flex-row">
+                <div className="flex flex-col items-start justify-center flex-1">
+                  <div className="text-3xl font-bold md:text-3xl">Question {index + 1} Score : {question.marks.completeness + question.marks.correctness + question.marks.clarity} / 15</div>
+                  <div className="text-base text-left pt-5 text-gray-900 max-w-prose" >
+                    Mark Breakdown 
+                    Correctness   
+                    {question.marks.correctness}/5 - {question.feedback.correctness}
+                    Completeness   
+                    {question.marks.completeness}/5 - {question.feedback.completeness}
+                    Clarity   
+                    {question.marks.clarity}/5 - {question.feedback.clarity}
+                  </div>
+                </div>
+                </div>
+                </div>
+              </section>
+
+
+              ))}
+      </div>
+
+
     </>
 
       ) : (
@@ -300,6 +340,25 @@ export default function Home() {
           {isLoadingResponses ? 'Uploading Responses...' : 'Upload Responses'}
         </button>
       </form>
+
+
+        {/* <Dropdown>
+          <Button 
+            variant="bordered">
+            Select Year Group
+          </Button>
+        <DropdownMenu aria-label="Static Actions">
+          <DropdownItem key="Reception">Reception</DropdownItem>
+          <DropdownItem key="Year 1">Year 1</DropdownItem>
+          <DropdownItem key="Year 2">Year 2</DropdownItem>
+          <DropdownItem key="Year 3">Year 3</DropdownItem>
+          <DropdownItem key="Year 4">Year 4</DropdownItem>
+          <DropdownItem key="Year 5">Year 5</DropdownItem>
+          <DropdownItem key="Year 6">Year 6</DropdownItem>
+        </DropdownMenu>
+        </Dropdown> */}
+
+
     </div>
   )}
 
