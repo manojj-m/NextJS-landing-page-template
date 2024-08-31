@@ -165,7 +165,7 @@ export default function Home() {
         <section className="flex flex-col mt-16 lg:mt-24">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-              Contact Us
+              Contact Us    
             </h2>
             <p className="mt-2 text-base md:text-lg text-gray-600">
               We would be more than happy to assist with any questions or provide more information on Evaluate Learning.
