@@ -36,21 +36,20 @@ const Navbar = () => {
           <div className="hidden items-center space-x-4 sm:flex">
             <Link
               className={buttonVariants({
-                variant: "ghost",
                 size: "sm",
               })}
               href="/getstarted"
             >
-              Sign in
+              Try it out
             </Link>
-            <Link
+            {/* <Link
               className={buttonVariants({
                 size: "sm",
               })}
               href="/signup"
             >
               Get started
-            </Link>
+            </Link> */}
           </div>          
         </div>
       </MaxWidthWrapper>

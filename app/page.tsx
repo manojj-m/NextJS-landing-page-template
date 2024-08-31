@@ -19,16 +19,16 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Launching 1 September 2024</div>
+      <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Try it out completely for free!</div>
 
       {/* Hero Section */}
       <MaxWidthWrapper className="flex flex-col items-center justify-center text-center">
         <h1 className="max-w-4xl text-4xl font-bold mt-4 sm:text-5xl lg:text-7xl lg:mt-20">
-          <span className="text-blue-600">Personalised Feedback <br></br></span>on School Assignments
+          <span className="text-blue-600">Personalised Feedback <br></br></span>on Maths Assignments
         </h1>
 
         <div className="mt-16 max-w-prose text-xl text-zinc-700 sm:text-2xl sm:px-6 lg:mt-24 lg:text-3xl">
-          Use AI to generate personalised feedback for your student’s school assignments in just moments.
+          Use AI to generate personalised feedback for your student’s maths assignments in just moments.
         </div>
 
         <div className="flex flex-col gap-10 mt-16 sm:gap-6 sm:flex-row lg:mt-24">
@@ -47,7 +47,7 @@ export default function Home() {
               Step 2
             </span>
             <span className="text-lg font-base pt-1 text-zinc-700 md:text-xl lg:text-left">
-              Upload the student's previous performance data e.g. previous grades, tests, school reports
+              We read in the assignment and mark the response for you
             </span>
           </div>
           <div className="flex flex-col px-4 sm:flex-1 items-center lg:items-start">
@@ -56,14 +56,14 @@ export default function Home() {
               Step 3
             </span>
             <span className="text-lg font-base pt-1 text-zinc-700 md:text-xl lg:text-left">
-              Receive personalised feedback for the assignment via email
+              Receive personalised feedback for the assignment in line with the national curriculum
             </span>
           </div>
         </div>
       </MaxWidthWrapper>
 
       {/* Value Prop */}
-      <div className="mt-8 lg:mt-24">
+      {/* <div className="mt-8 lg:mt-24">
         <div className="relative isolate">
           <div
             aria-hidden="true"
@@ -108,7 +108,7 @@ export default function Home() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <MaxWidthWrapper>
 
@@ -118,10 +118,11 @@ export default function Home() {
             Creating a more <span className="text-blue-600">dynamic</span>, supportive learning environment for <span className="text-blue-600">all</span>
           </div>
           <div className="w-full max-w-prose mx-auto text-center text-base px-4 md:text-lg">
-            At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it.            Evaluate Learning empowers primary and secondary school teachers to create tailored assignment feedback. By uploading assignments along with prior student data, teachers receive context-rich feedback that considers each student's unique learning path. Our AI technology analyses the assignment combined with historical performance, to provide insightful personalised feedback that goes beyond generic comments.
+            At Evaluate Learning, we envision a future where every student receives the personalized attention they deserve, and every teacher has the tools to provide it. Evaluate Learning empowers primary and  school teachers to create tailored assignment feedback. By uploading assignments along with the student's response, teachers can automatically mark assignments benchmarked against the national curriculum. 
             We are proudly supported by <a href="https://www.skysthelimit.org/" className="underline text-blue-500">Sky's The Limit</a>, a nonprofit organisation supporting entrepeneurs.
           </div>
         </section>
+
 
         {/* Meet The Founder */}
         <section className="flex flex-col mt-12 w-full max-w-4xl mx-auto lg:mt-20">
@@ -129,7 +130,7 @@ export default function Home() {
             <div className="flex flex-col items-start justify-center flex-1">
               <div className="text-3xl font-bold md:text-3xl">Meet Our Founder</div>
               <div className="text-base text-left pt-5 text-gray-900 max-w-prose" >
-                Manojj grew up in the vibrant city of London, where his passion for education and technology was ignited at a young age. With a keen interest in leveraging innovation to solve real-world problems, Manojj pursued advanced studies in computer science, focusing on the transformative potential of machine learning. His dedication led him to found our company, where he harnesses cutting-edge technology to empower teachers and revolutionize the way homework is assigned. Under Manojj's visionary leadership, our startup is committed to enhancing educational experiences through seamless, AI-driven solutions.
+                Manojj grew up in London, where his passion for education and technology was ignited at a young age. After studying programming at the University of Warwick, and working in software, his passion for education led him to found our company. Under Manojj's leadership, Evaluate Learning is committed to enhancing education using technology. 
               </div>
               <div className="flex flex-row gap-1 mt-5 items-center hover:cursor-pointer hover:underline">
                 <FaLinkedin className="w-6 h-6 " />
@@ -147,22 +148,6 @@ export default function Home() {
             />
           </div>
         </section>
-
-
-        {/* Form */}
-        <section className="mt-16 max-w-2xl text-center mx-auto lg:mt-24">
-          <div className="text-3xl font-bold text-gray-900 md:text-4xl">
-            Register Your Interest
-          </div>
-          <p className="mt-4 text-base md:text-lg text-gray-600">
-            Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024.
-          </p>
-          <br></br>
-            <div><CreateForm/></div>
-        </section>
-        
-
-
 
         {/* Contact Us */}
         <section className="flex flex-col mt-16 lg:mt-24">
@@ -192,6 +177,22 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        
+
+
+        {/* Form */}
+        {/* <section className="mt-16 max-w-2xl text-center mx-auto lg:mt-24">
+          <div className="text-3xl font-bold text-gray-900 md:text-4xl">
+            Register Your Interest
+          </div>
+          <p className="mt-4 text-base md:text-lg text-gray-600">
+            Sign up to access a free trial of Evaluate Learning upon release on September 1st 2024.
+          </p>
+          <br></br>
+            <div><CreateForm/></div>
+        </section> */}
+        
 
 
       </MaxWidthWrapper>
