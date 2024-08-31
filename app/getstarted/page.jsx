@@ -106,7 +106,7 @@ export default function Home() {
       setIsApiCalled(true); // Hide upload buttons and forms
       try {
   
-        const response = await axios.get('http://127.0.0.1:8000/testing', {
+        const response = await axios.get('api-ashy-tau.vercel.app/testing', {
           params: {
             file_names: questionUUIDs,
             responses: responseUUIDs,
@@ -128,7 +128,7 @@ export default function Home() {
       callTestingAPI(questionUUIDs, responseUUIDs);
     }
 
-  }, [questionsUploaded, responsesUploaded]);
+  }, [questionsUploaded, responsesUploaded, questionUUIDs, responseUUIDs]);
 
 
   const paramsSerializer = (params) => {
