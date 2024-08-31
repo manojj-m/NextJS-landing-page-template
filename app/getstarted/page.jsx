@@ -4,9 +4,10 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { createClient } from '@supabase/supabase-js';
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid'; 
-
+import { ResponsiveRadar } from '@nivo/radar';
+import axios from 'axios';
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -16,6 +17,14 @@ import { MdOutlineMarkEmailRead } from "react-icons/md";
 
 export default function Home() {
 
+  const styles = {
+    card: {
+      border: '1px solid #ddd',
+      padding: '10px',
+      marginBottom: '10px',
+      borderRadius: '4px'
+    }
+  };
   const router = useRouter();
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
   const [isLoadingResponses, setIsLoadingResponses] = useState(false);
@@ -23,8 +32,10 @@ export default function Home() {
   const [responseUUIDs, setResponseUUIDs] = useState([]);
   const [questionsUploaded, setQuestionsUploaded] = useState(false);
   const [responsesUploaded, setResponsesUploaded] = useState(false);  
-  const [apiOutput, setApiOutput] = useState(null); // State for API output
   const [isApiCalled, setIsApiCalled] = useState(false); // State to manage UI visibility
+  const [score_data, setScoreData] = useState([]);
+  const [type_data, setTypeData] = useState([]);
+
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -80,42 +91,172 @@ export default function Home() {
   };
 
   useEffect(() => {
+
+    const callTestingAPI = async (questionUUIDs, responseUUIDs) => {
+      setIsApiCalled(true); // Hide upload buttons and forms
+      try {
+  
+        const response = await axios.get('https://api-ashy-tau.vercel.app/mark', {
+          params: {
+            file_names: questionUUIDs,
+            responses: responseUUIDs,
+          },
+          paramsSerializer: paramsSerializer  // Use custom serializer
+      });
+      setScoreData(response.data.radar_topic_scores_fin);
+      setTypeData(response.data.radar_type_scores);
+  
+      } catch (error) {
+        console.error('Error calling API:', error);
+      }
+    };
+
     if (questionsUploaded && responsesUploaded) {
       // If both uploads are complete, make the API call
       callTestingAPI(questionUUIDs, responseUUIDs);
     }
+
   }, [questionsUploaded, responsesUploaded]);
 
-  const callTestingAPI = async (questionUUIDs, responseUUIDs) => {
-    setIsApiCalled(true); // Hide upload buttons and forms
-    try {
-      const response = await fetch('https://api-ashy-tau.vercel.app/testing?' + new URLSearchParams({
-        file_names: questionUUIDs,
-        responses: responseUUIDs
-      }), {
-        method: 'GET'
-      });
 
-      const apiOutput = await response.json();
-      setApiOutput(apiOutput); // Store the API output in state
-      console.log('API Output:', apiOutput);
-      // Handle the API response here
-
-    } catch (error) {
-      console.error('Error calling API:', error);
-    }
+  const paramsSerializer = (params) => {
+    const searchParams = new URLSearchParams();
+    Object.keys(params).forEach(key => {
+      if (Array.isArray(params[key])) {
+        params[key].forEach(val => searchParams.append(key, val));
+      } else {
+        searchParams.append(key, params[key]);
+      }
+    });
+    return searchParams.toString();
   };
 
+  // useEffect(() => {
+  // const callTestingAPI = async (questionUUIDs, responseUUIDs) => {
+  //   setIsApiCalled(true); // Hide upload buttons and forms
+  //   try {
+
+  //     const response = await axios.get('https://api-ashy-tau.vercel.app/testing', {
+  //       params: {
+  //         file_names: questionUUIDs,
+  //         responses: responseUUIDs,
+  //       },
+  //       paramsSerializer: paramsSerializer  // Use custom serializer
+  //   });
+  //   setScoreData(response.data.radar_topic_scores_fin);
+  //   setTypeData(response.data.radar_type_scores);
+
+  //   } catch (error) {
+  //     console.error('Error calling API:', error);
+  //   }
+  // };
+  // }, []);
+
   return (
+    <div style={{ height: '500px' }}>
     <>
       <Navbar />
       <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Launching 1 September 2024</div>
 
-      {isApiCalled ? (
-        <div>
-          <h2>API Output</h2>
-          <pre>{JSON.stringify(apiOutput, null, 2)}</pre> {/* Display the API output */}
+      {score_data.length > 0 && type_data.length > 0 ? (
+
+         <>
+    <ResponsiveRadar
+        data={score_data}
+        keys={[ 'weaker', 'weak', 'okay', 'strong', 'stronger' ]}
+        indexBy="label"
+        maxValue={100}
+        valueFormat=" >-.0f"
+        margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
+        borderWidth={0}
+        borderColor={{ from: 'color', modifiers: [] }}
+        gridLevels={10}
+        gridShape="linear"
+        gridLabelOffset={20}
+        dotSize={2}
+        dotColor={{ from: 'color', modifiers: [] }}
+        dotBorderWidth={1}
+        enableDotLabel={true}
+        dotLabelYOffset={-2}
+        colors={{ scheme: 'set2' }}
+        fillOpacity={1}
+        motionConfig="default"
+        legends={[
+            {
+                anchor: 'top-left',
+                direction: 'column',
+                translateX: -50,
+                translateY: -40,
+                itemWidth: 80,
+                itemHeight: 20,
+                itemTextColor: '#999',
+                symbolSize: 0,
+                symbolShape: 'circle',
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemTextColor: '#000'
+                        }
+                    }
+                ]
+            }
+        ]}
+    />
+
+    <div>
+      {score_data.map((entry, index) => (
+        <div key={index} style={styles.card}>
+          <p><strong>{entry.label}:</strong> {entry.LO}</p>
         </div>
+      ))}
+    </div>
+
+
+    <ResponsiveRadar
+        data={type_data}
+        keys={[ 'mark' ]}
+        indexBy="type"
+        maxValue={5}
+        valueFormat=" >-.2f"
+        margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
+        borderWidth={0}
+        borderColor={{ from: 'color', modifiers: [] }}
+        gridLevels={10}
+        gridShape="linear"
+        gridLabelOffset={20}
+        dotSize={2}
+        dotColor={{ from: 'color', modifiers: [] }}
+        dotBorderWidth={1}
+        enableDotLabel={true}
+        dotLabelYOffset={3}
+        colors={{ scheme: 'set2' }}
+        fillOpacity={1}
+        motionConfig="default"
+        legends={[
+            {
+                anchor: 'top-left',
+                direction: 'column',
+                translateX: -50,
+                translateY: -40,
+                itemWidth: 80,
+                itemHeight: 20,
+                itemTextColor: '#999',
+                symbolSize: 0,
+                symbolShape: 'circle',
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemTextColor: '#000'
+                        }
+                    }
+                ]
+            }
+        ]}
+    />
+    </>
+
       ) : (
         <div>
         <p> Upload your files here :  </p>
@@ -166,5 +307,6 @@ export default function Home() {
 
       <Footer />
       </>
+      </div>
   );
 }

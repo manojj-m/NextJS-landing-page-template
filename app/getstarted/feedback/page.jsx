@@ -2,8 +2,10 @@
 // install (please try to align the version of installed @nivo packages)
 // yarn add @nivo/radar
 import { ResponsiveRadar } from '@nivo/radar';
-import {radar_topic_scores_fin as score_data} from './evaluate_data.js';
-import {radar_type_scores as type_data} from './evaluate_data.js';
+import React, { useEffect, useState } from 'react'; 
+import axios from 'axios'; // using axios for HTTP requests
+// import {radar_topic_scores_fin as score_data} from './evaluate_data.js';
+// import {radar_type_scores as type_data} from './evaluate_data.js';
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -14,6 +16,9 @@ import {radar_type_scores as type_data} from './evaluate_data.js';
 
 export default function Home() {
 
+    const [score_data, setScoreData] = useState([]);
+    const [type_data, setTypeData] = useState([]);
+
     const styles = {
         card: {
           border: '1px solid #ddd',
@@ -23,10 +28,26 @@ export default function Home() {
         }
       };
 
+    useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('https://api-ashy-tau.vercel.app/testing'); // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+            setScoreData(response.data.radar_topic_scores_fin);
+            setTypeData(response.data.radar_type_scores);
+        } catch (error) {
+            console.error('Failed to fetch data:', error);
+            // Handle errors here if necessary
+        }
+    };
+
+    fetchData();
+    }, []); // Empty dependency array means this effect runs only once after the initial render
+
 return (
     <div style={{ height: '500px' }}> {/* Set a fixed height */}
-
-
+    
+     {score_data.length > 0 && type_data.length > 0 ? (
+    <>
     <ResponsiveRadar
         data={score_data}
         keys={[ 'weaker', 'weak', 'okay', 'strong', 'stronger' ]}
@@ -121,6 +142,10 @@ return (
             }
         ]}
     />
+    </>
+     ) : (
+        <p>Loading data...</p>
+    )}
 
     </div>
     );
