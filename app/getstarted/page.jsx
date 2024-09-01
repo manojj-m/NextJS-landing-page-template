@@ -128,7 +128,7 @@ export default function Home() {
       callTestingAPI(questionUUIDs, responseUUIDs);
     }
 
-  }, [questionsUploaded, responsesUploaded, questionUUIDs, responseUUIDs]);
+  }, [questionsUploaded, responsesUploaded]);
 
 
   const paramsSerializer = (params) => {
