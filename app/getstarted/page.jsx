@@ -271,8 +271,8 @@ export default function Home() {
      {/* Rendering Cards for Each Element in question_data */}
      <div>
               {question_data.map((question, index) => (
-              <section className="flex flex-col mt-12 w-full max-w-4xl mx-auto lg:mt-20">
-                <div key={index} style={styles.question_card}>
+              <section  key={index} className="flex flex-col mt-12 w-full max-w-4xl mx-auto lg:mt-20">
+                <div style={styles.question_card}>
                   <div className="flex flex-col items-center justify-between gap-6 p-8 w-full bg-white  rounded-xl md:flex-row">
                 <div className="flex flex-col items-start justify-center flex-1">
                   <div className="text-3xl font-bold md:text-3xl">Question {index + 1} Score : {question.marks.completeness + question.marks.correctness + question.marks.clarity} / 15</div>
