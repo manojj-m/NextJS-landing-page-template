@@ -120,7 +120,7 @@ export default function Home() {
 
   //
   //https://api-ashy-tau.vercel.app/mark
-        const response = await axios.get("http://127.0.0.1:8000/testing", {
+        const response = await axios.get("https://api-ashy-tau.vercel.app/mark", {
           params: {
             file_names: questionUUIDs,
             responses: responseUUIDs,
