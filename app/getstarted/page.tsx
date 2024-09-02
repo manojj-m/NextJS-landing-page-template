@@ -150,7 +150,7 @@ export default function Home() {
 
   const paramsSerializer = (params: Params) => {
     const searchParams = new URLSearchParams();
-    
+
     Object.keys(params).forEach(key => {
       const value = params[key];
       if (Array.isArray(value)) {
@@ -473,7 +473,11 @@ export default function Home() {
                     type="file"
                     multiple
                     name="questionInput"
-                    onChange={(e) => console.log(e.target.files.length + ' files selected for questions')}
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        console.log(e.target.files.length + ' files selected for questions');
+                      }
+                  }}
                   />
                   <button type="submit" disabled={isLoadingQuestions}  className={buttonVariants({
                 size: "sm",
@@ -488,7 +492,11 @@ export default function Home() {
                     type="file"
                     multiple
                     name="responseInput"
-                    onChange={(e) => console.log(e.target.files.length + ' files selected for responses')}
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        console.log(e.target.files.length + ' files selected for responses');
+                      }
+                  }}
                   />
                   <button type="submit" disabled={isLoadingResponses}  className={buttonVariants({
                 size: "sm"
