@@ -54,11 +54,14 @@ export default function Home() {
   const [score_data, setScoreData] = useState<any[]>([]);
   const [type_data, setTypeData] = useState<any[]>([]);
   const [question_data, setQuestionData] = useState<any[]>([])
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
+
 
 
   const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    supabaseUrl,
+    supabaseAnonKey,
   );
 
   const uploadFiles = async (files: any, bucketName: string, setIsLoading: any) => {
