@@ -25,6 +25,11 @@ const buttonVariants = cva(
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
       },
+      color: {
+        green: "bg-green-500 text-white",
+        red: "bg-red-400",
+        purple: "bg-purple-600 text-white hover:bg-purple-500"
+      },
     },
     defaultVariants: {
       variant: "default",
