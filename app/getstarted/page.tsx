@@ -144,16 +144,22 @@ export default function Home() {
 
   }, [questionsUploaded, responsesUploaded]);
 
+  type Params = {
+    [key: string]: string | string[];
+  };
 
-  const paramsSerializer = (params: any) => {
+  const paramsSerializer = (params: Params) => {
     const searchParams = new URLSearchParams();
+    
     Object.keys(params).forEach(key => {
-      if (Array.isArray(params[key])) {
-        params[key].forEach(val => searchParams.append(key, val));
+      const value = params[key];
+      if (Array.isArray(value)) {
+        value.forEach(val => searchParams.append(key, val));
       } else {
-        searchParams.append(key, params[key]);
+        searchParams.append(key, value);
       }
     });
+
     return searchParams.toString();
   };
 
