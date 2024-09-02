@@ -271,7 +271,7 @@ export default function Home() {
         data={type_data}
         keys={[ 'mark' ]}
         indexBy="type"
-        maxValue={5}
+        maxValue={100}
         valueFormat=" >-.2f"
         margin={{ top: 80, right: 50, bottom: 50, left: 50 }}
         borderWidth={0}
