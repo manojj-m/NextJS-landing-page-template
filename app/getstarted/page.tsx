@@ -14,27 +14,13 @@ import Navbar from "@/components/Navbar";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { MdAddchart } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
-import {Dropdown, DropdownMenu, DropdownItem, Button} from "@nextui-org/dropdown";
 import { Card, Space } from "antd";
-import {InlineMath, BlockMath} from 'react-katex'; 
 import 'katex/dist/katex.min.css';
-import { cn } from "lib/utils.ts";
 
 
 
 export default function Home() {
 
-
-  const LatexRenderer = ({ content, isBlock = false }) => {
-    console.log('Rendering content:', content);
-    const formattedContent = String.raw`${content}`;
-  
-    return isBlock ? (
-      <BlockMath math={formattedContent} />
-    ) : (
-      <InlineMath math={formattedContent} />
-    );
-  };
 
 
   const styles = {
@@ -58,16 +44,16 @@ export default function Home() {
   };
 
   const router = useRouter();
-  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
-  const [isLoadingResponses, setIsLoadingResponses] = useState(false);
-  const [questionUUIDs, setQuestionUUIDs] = useState([]);
-  const [responseUUIDs, setResponseUUIDs] = useState([]);
-  const [questionsUploaded, setQuestionsUploaded] = useState(false);
-  const [responsesUploaded, setResponsesUploaded] = useState(false);  
-  const [isApiCalled, setIsApiCalled] = useState(false); // State to manage UI visibility
-  const [score_data, setScoreData] = useState([]);
-  const [type_data, setTypeData] = useState([]);
-  const [question_data, setQuestionData] = useState([])
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState<boolean>(false);
+  const [isLoadingResponses, setIsLoadingResponses] = useState<boolean>(false);
+  const [questionUUIDs, setQuestionUUIDs] = useState<string[]>([]);
+  const [responseUUIDs, setResponseUUIDs] = useState<string[]>([]);
+  const [questionsUploaded, setQuestionsUploaded] = useState<boolean>(false);
+  const [responsesUploaded, setResponsesUploaded] = useState<boolean>(false);  
+  const [isApiCalled, setIsApiCalled] = useState<boolean>(false); // State to manage UI visibility
+  const [score_data, setScoreData] = useState<any[]>([]);
+  const [type_data, setTypeData] = useState<any[]>([]);
+  const [question_data, setQuestionData] = useState<any[]>([])
 
 
   const supabase = createClient(
@@ -75,7 +61,7 @@ export default function Home() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   );
 
-  const uploadFiles = async (files, bucketName, setIsLoading) => {
+  const uploadFiles = async (files: any, bucketName: string, setIsLoading: any) => {
     setIsLoading(true); // Start loading
 
     // Process all files
@@ -101,11 +87,11 @@ export default function Home() {
       return uuids;
     };
 
-    function getFileExtension(filename) {
+    function getFileExtension(filename: string) {
       return filename.slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2);
     }
 
-  const handleQuestionUpload = async (e) => {
+  const handleQuestionUpload = async (e: any) => {
     e.preventDefault();
     const files = e.target.elements.questionInput.files;
     const question_uuids = await uploadFiles(files, 'QuestionSheets', setIsLoadingQuestions);
@@ -114,7 +100,7 @@ export default function Home() {
     console.log('UUIDs for Questions:', question_uuids); // Log or handle the UUIDs
   };
 
-  const handleResponseUpload = async (e) => {
+  const handleResponseUpload = async (e: any) => {
     e.preventDefault();
     const files = e.target.elements.responseInput.files;
     const response_uuids = await uploadFiles(files, 'StudentResponses', setIsLoadingResponses);
@@ -125,13 +111,13 @@ export default function Home() {
 
   useEffect(() => {
 
-    const callTestingAPI = async (questionUUIDs, responseUUIDs) => {
+    const callTestingAPI = async (questionUUIDs: any, responseUUIDs: any) => {
       setIsApiCalled(true); // Hide upload buttons and forms
       try {
 
   //
   //https://api-ashy-tau.vercel.app/mark
-        const response = await axios.get("https://api-ashy-tau.vercel.app/mark", {
+        const response = await axios.get("http://127.0.0.1:8000/testing", {
           params: {
             file_names: questionUUIDs,
             responses: responseUUIDs,
@@ -156,7 +142,7 @@ export default function Home() {
   }, [questionsUploaded, responsesUploaded]);
 
 
-  const paramsSerializer = (params) => {
+  const paramsSerializer = (params: any) => {
     const searchParams = new URLSearchParams();
     Object.keys(params).forEach(key => {
       if (Array.isArray(params[key])) {
@@ -496,7 +482,7 @@ export default function Home() {
                     onChange={(e) => console.log(e.target.files.length + ' files selected for responses')}
                   />
                   <button type="submit" disabled={isLoadingResponses}  className={buttonVariants({
-                size: "sm", color:"purple"
+                size: "sm"
               })}>
                     {isLoadingResponses ? 'Uploading Responses...' : 'Upload Responses'}
                   </button>
