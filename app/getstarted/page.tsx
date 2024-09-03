@@ -56,8 +56,12 @@ export default function Home() {
   const [question_data, setQuestionData] = useState<any[]>([])
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
+  const [year, setYear] = useState<string>("1")
 
 
+  const handleYearChange = (event: any) => {
+    setYear(event.target.value);
+  };
 
   const supabase = createClient(
     supabaseUrl,
@@ -118,12 +122,13 @@ export default function Home() {
       setIsApiCalled(true); // Hide upload buttons and forms
       try {
 
-  //
+  //http://127.0.0.1:8000/testing 
   //https://api-ashy-tau.vercel.app/mark
         const response = await axios.get("https://api-ashy-tau.vercel.app/mark", {
           params: {
             file_names: questionUUIDs,
             responses: responseUUIDs,
+            year: year,
           },
           paramsSerializer: paramsSerializer  // Use custom serializer
       });
@@ -450,8 +455,9 @@ export default function Home() {
             <div className="flex flex-col items-start justify-center flex-1">
               <div className="text-3xl font-bold md:text-2xl">About the Tool</div>
               <div className="text-base text-left pt-4 text-gray-900" >
-                You can immediately generate feedback for a maths assignments using our tool. 
-                <p>First, select the question sheet containing the questions that you would like to mark responses for. Once you have selected the sheet, press 'Upload Questions' to upload the file.</p> 
+                You can immediately generate feedback for a student's maths assignments using our tool. 
+                <p>First, select the student's year group. The assignment feedback will evaluate the student's performance on the topics from the national curriculum that are tested in the assignment.</p> 
+                <p>Secondly, select the question sheet containing the questions that you would like to mark responses for. Once you have selected the sheet, press 'Upload Questions' to upload the file.</p> 
                 <p>Next, select the student's response to this question that you would to mark. Once you have selected this response, press 'Upload Responses' to upload the file</p> 
                 <p>Both the question sheet and the student's response can be handwritten or typed. We accept pdf, jpg/jpeg, png and docx formats.</p>
                 <p>Once you have uploaded both a question sheet and a student's response, we will generate feedback for the student's response to the question sheet. Once the feedback is ready, it will be displayed on this page.</p>
@@ -467,8 +473,20 @@ export default function Home() {
               <div className="text-3xl font-bold md:text-2xl">Upload Files</div>
               <div className="text-base text-left pt-5 text-gray-900" >
                 
+              <div className="lg:mt-2 mb-2 font-bold">Select the student's year group</div>
+                <label>
+                  <select id="dropdown" value={year} onChange={handleYearChange}>
+                  <option value="1">Year 1</option>
+                  <option value="2">Year 2</option>
+                  <option value="3">Year 3</option>
+                  <option value="4">Year 4</option>
+                  <option value="5">Year 5</option>
+                  <option value="6">Year 6</option>
+                </select>
+                </label>
+
                 <form onSubmit={handleQuestionUpload}>
-                <div className="lg:mt-2 mb-2 font-bold">Upload question sheets</div>
+                <div className="lg:mt-6 mb-2 font-bold">Upload question sheets</div>
                 <input
                     type="file"
                     multiple
