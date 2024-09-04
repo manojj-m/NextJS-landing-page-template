@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      {/* <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Try it out completely for free!</div> */}
+      <div className="w-full text-center bg-blue-500 py-2 text-lg text-white font-medium">Our tool is currently down for maintenance, we will be back on September 6th</div>
 
       {/* Hero Section */}
       <MaxWidthWrapper className="flex flex-col items-center justify-center text-center">
@@ -31,7 +31,7 @@ export default function Home() {
           Generate personalised feedback for your primary school student’s maths assignments in just moments.
         </div>
 
-        <Link
+        {/* <Link
           className={cn(
             buttonVariants({
               size: "lg",
@@ -41,7 +41,7 @@ export default function Home() {
           href={"/getstarted"}
         >
           Try it out
-        </Link>
+        </Link> */}
 
         <div className="flex flex-col gap-10 mt-16 sm:gap-6 sm:flex-row lg:mt-20">
           <div className="flex flex-col px-4 sm:flex-1 items-center lg:items-start">

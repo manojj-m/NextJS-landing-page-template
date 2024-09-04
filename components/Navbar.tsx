@@ -34,14 +34,14 @@ const Navbar = () => {
             <span className="text-2xl font-semibold" style={{ color: 'rgb(23, 48, 87)' }}>Evaluate Learning</span>
           </Link>
           <div className="hidden items-center space-x-4 sm:flex">
-            <Link
+            {/* <Link
               className={buttonVariants({
                 size: "sm",
               })}
               href="/getstarted"
             >
               Try it out
-            </Link>
+            </Link> */}
             {/* <Link
               className={buttonVariants({
                 size: "sm",
